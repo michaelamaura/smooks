@@ -1,0 +1,16 @@
+name: Cut release
+
+on:
+  workflow_dispatch:
+    inputs:
+      newVersion:
+        required: true
+        description: Release version no.
+        type: string
+
+jobs:
+  ref-latest:
+    uses: smooks/.github/.github/workflows/release.yml@master
+    secrets: inherit
+    with:
+      newVersion: ${{ inputs.newVersion }}
