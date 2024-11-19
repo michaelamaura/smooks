@@ -78,7 +78,6 @@ import org.smooks.engine.resource.config.DefaultResourceConfigSortComparator;
 import org.smooks.engine.resource.config.ParameterAccessor;
 import org.smooks.engine.resource.config.xpath.step.ElementSelectorStep;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -239,14 +238,21 @@ public class DefaultContentDeliveryConfigBuilder implements ContentDeliveryConfi
         }
 
         stringBuf.append("\t\t ");
-        Map<String, Boolean> supportedFilterProviders = filterProviders.stream().map(s -> new AbstractMap.SimpleEntry<>(s.getName(), s.isProvider(Collections.singletonList(contentHandlerBinding)))).
-                collect(Collectors.toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue));
+        Map<String, Boolean> supportedFilterProviders = getOrderedSupportedFilterProviders(contentHandlerBinding);
         for (Entry<String, Boolean> supportedFilterProvider : supportedFilterProviders.entrySet()) {
             stringBuf.append(supportedFilterProvider.getValue() ? supportedFilterProvider.getKey() : " ").append("     ");
         }
 
         stringBuf.append(contentHandlerBinding.getResourceConfig())
                 .append("\n");
+    }
+
+    private Map<String, Boolean> getOrderedSupportedFilterProviders(ContentHandlerBinding<Visitor> contentHandlerBinding) {
+        Map<String, Boolean> supportedFilterProviders = new LinkedHashMap<>();
+        filterProviders.forEach(
+                s -> supportedFilterProviders.put(s.getName(), s.isProvider(Collections.singletonList(contentHandlerBinding)))
+        );
+        return supportedFilterProviders;
     }
 
     /**
