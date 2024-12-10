@@ -812,7 +812,7 @@ Filter-specific knobs are set through the _smooks-core_ configuration namespace 
 
 <3> `+terminateOnException+` (default: `+true+`): whether an exception should terminate execution.
 
-<4> `+closeSource+` (default: `+true+`): close `+Inp+` instance streams passed to the `+Smooks.filterSource+` method. The exception here is `+System.in+`, which will never be closed.
+<4> `+closeSource+` (default: `+true+`): close `+InputStream+` instance streams passed to the `+Smooks.filterSource+` method. The exception here is `+System.in+`, which will never be closed.
 
 <5> `+closeSink+`: close Sink streams passed to the `+[Smooks.filterSource+` method (default "true"). The exception here is `+System.out+` and `+System.err+`, which will never be closed.
 
