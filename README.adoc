@@ -32,7 +32,7 @@ NOTE: You will need both Maven (version 3.2.x) and Git installed on your local m
 // tag::getting-started[]
 == Getting Started
 
-The easiest way to get started with Smooks is to download and try out the https://github.com/smooks/smooks-examples/tree/v4[examples]. The examples are the recommended base upon which to integrate Smooks into your application.
+The easiest way to get started with Smooks is to download and try out the https://github.com/smooks/smooks-examples/tree/v5[examples]. The examples are the recommended base upon which to integrate Smooks into your application.
 // end::getting-started[]
 
 // tag::introduction[]
