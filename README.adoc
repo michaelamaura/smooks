@@ -38,7 +38,7 @@ The easiest way to get started with Smooks is to download and try out the https:
 // tag::introduction[]
 == Introduction
 
-Smooks is an open-source, extensible data integration Java framework for building fragment-based, event-driven applications that process XML and non-XML data (CSV, EDI, POJOs, etc...). It can be used as a lightweight framework on which to hook your own processing logic for a wide range of data formats but, out-of-the-box, Smooks ships with features that can be used individually or seamlessly together:
+Smooks is an open-source, extensible Java framework for building event-driven applications that break up XML and non-XML data into fragments for data integration. It can be used as a lightweight framework on which to hook your own processing logic for a wide range of data formats but, out-of-the-box, Smooks ships with features that can be used individually or seamlessly together:
 
 * *Java Binding*: Populate POJOs from a source (CSV, EDI, XML, POJOs, etc...). Populated POJOs can either be the final result of a transformation, or serve as a bridge for further transformations like what is seen in template resources which generate textual results such as XML. Additionally, Smooks supports collections (maps and lists of typed data) that can be referenced from expression languages and templates.
 
